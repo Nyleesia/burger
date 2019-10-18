@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome To Good, Better, Best Burgers!</h1>
+        <h2>Order One of Our Signiture Burgers!</h2>
+        <p>Orders are Immediately Ready for Pickup.</p>
+        <br>
+        <h2>Select a Burger or Sandwich</h2>
+        <panel>
+            <form class="createBurger">
+                <div class="form-group">
+                        <select data-placeholder="" id="newBurger" name="burger">
+                            <option value="NothingSelected"> Please Make Your Selection</option>
+                            <option value="Angus Beef Burger">Angus Beef Burger</option>
+                            <option value="Bacon and Cheese Burger">Bacon and Cheese Burger</option>
+                            <option value="Barbeque Burger">Barbeque Burger</option>
+                            <option value="Butter Burger">Butter Burger</option>
+                            <option value="Buffalo Burger">Buffalo Burger</option>
+                            <option value="California Burger">California</option>
+                            <option value="CheeseBurger">Cheese Burger</option>
+                            <option value="ChickenClub">Chicken Club Sandwich</option>
+                            <option value="Hamburger">Hamburger</option>
+                            <option value="HamDog">Hamdog</option>
+                            <option value="Hawaiian">Hawaiian Burger</option>
+                            <option value="Kimchi">Kimchi Burger</option>
+                            <option value="Naan"> Naan Burger</option>
+                            <option value="PulledPork">Pulled Pork Sandwich</option>
+                            <option value="Salmon">Salmon Burger</option>
+                            <option value="Slider">Slider </option>
+                            <option value="SteakChz">Steak and Cheese Sandwich</option>
+                            <option value="Teriyaki">Teriyaki Chicken Sandwich</option>
+                            <option value="Veggie">Veggie Burger</option>
+                        </select>
+                    <button type="submit" class="btn btn-success" id="addBurger">
+                        <span class="fa fa-thumbs-up"></span>
+                    </button>
+                </div>
+            </form>
+        </panel>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="leftside"><strong>Ready for Pickup!</strong>
+                <p><strong>Click Below to Eat Your Burger.</strong></p>
+                    </div>
+                <div class="panel-body">
+
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+
+                        <span><strong> {{this.id}} - {{this.burgerName}}</strong></span>
+                        <button type="button" class="eatBurger btn btn-warning" id="eatButton{{this.id}}" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-usd"></span></button>
+                        <hr>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="rightside"><strong>Clean Up After Yourself!</strong>
+                    <p><strong>Click Below to Remove Your Trash.</strong></p>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <span><strong> {{this.id}} - {{this.burgerName}}</strong></span>
+                        <button type="button" class="removeBurger btn btn-danger" id="deleteButton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                        <hr>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

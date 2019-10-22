@@ -1,37 +1,41 @@
-<div class="container">
-    <div class="jumbotron">
-        <h1>Welcome To Good, Better, Best Burgers!</h1>
-        <h2>Order One of Our Signiture Burgers!</h2>
-        <p>Orders are Immediately Ready for Pickup.</p>
+<div class="container" style = "background-color: lightgrey; border: 2px lightgrey solid">
+    <div class="jumbotron" style = "background-color: white;  border: 2px solid green; color: black; align-items: center; text-align: center">
+        <h1 style = "background-color: red; font-family: 'Fredoka One', cursive; font-size: 85px">Irie Burgers</h1>
+        <h2 style = "background-color: green;  border: 2px solid green; color: black; align-items: center; text-align: center; font-size: 60px; font-family: 'Fredoka One', cursive;">Order One of Our Signiture Burgers!</h2>
+        <p style = "background-color: white;  border: 2px solid green; color: white; align-items: center; text-align: center">
+        <h3 style = "background-color: gold; font-family: 'Fredoka One', cursive; font-size: 35px">Orders are Immediately Ready for Pickup!</h3>
         <br>
-        <h2>Select a Burger or Sandwich</h2>
+        <hr> 
         <panel>
-            <form class="createBurger">
-                <div class="form-group">
-                        <select data-placeholder="" id="newBurger" name="burger">
-                            <option value="NothingSelected"> Please Make Your Selection</option>
-                            <option value="Angus Beef Burger">Angus Beef Burger</option>
+            <form class="createBurger" >
+                <div class="form-group" >
+                    <br>
+                    <label for="newBurger"><h2 style = "color: black; font-size: 20px" >Select a Burger or Sandwich Below: </h2>
+                    </label>
+                    <br>
+                        <select data-placeholder="" id="newBurger" name="burger" style = "text-align: center">
+                            <option value="Angus Beef Burger" >Angus Beef Burger</option>
                             <option value="Bacon and Cheese Burger">Bacon and Cheese Burger</option>
                             <option value="Barbeque Burger">Barbeque Burger</option>
                             <option value="Butter Burger">Butter Burger</option>
                             <option value="Buffalo Burger">Buffalo Burger</option>
-                            <option value="California Burger">California</option>
-                            <option value="CheeseBurger">Cheese Burger</option>
+                            <option value="California Burger">California Burger</option>
+                            <option value="Cheese Burger">Cheese Burger</option>
                             <option value="ChickenClub">Chicken Club Sandwich</option>
                             <option value="Hamburger">Hamburger</option>
                             <option value="HamDog">Hamdog</option>
-                            <option value="Hawaiian">Hawaiian Burger</option>
-                            <option value="Kimchi">Kimchi Burger</option>
-                            <option value="Naan"> Naan Burger</option>
-                            <option value="PulledPork">Pulled Pork Sandwich</option>
-                            <option value="Salmon">Salmon Burger</option>
+                            <option value="Hawaiian Burger">Hawaiian Burger</option>
+                            <option value="Kimchi Burger">Kimchi Burger</option>
+                            <option value="Naan Burger"> Naan Burger</option>
+                            <option value="PulledPork Burger">Pulled Pork Sandwich</option>
+                            <option value="Salmon Burger">Salmon Burger</option>
                             <option value="Slider">Slider </option>
-                            <option value="SteakChz">Steak and Cheese Sandwich</option>
+                            <option value="Steak and Cheese Burger">Steak and Cheese Sandwich</option>
                             <option value="Teriyaki">Teriyaki Chicken Sandwich</option>
                             <option value="Veggie">Veggie Burger</option>
                         </select>
                     <button type="submit" class="btn btn-success" id="addBurger">
-                        <span class="fa fa-thumbs-up"></span>
+                        <span><i class="fa fa-dollar-sign"></i></span>
                     </button>
                 </div>
             </form>
@@ -40,17 +44,17 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
-                <div class="panel-heading" id="leftside"><strong>Ready for Pickup!</strong>
-                <p><strong>Click Below to Eat Your Burger.</strong></p>
-                    </div>
+                <div><div class="panel-heading" id="leftSide" style = "text-align:center; font-size:20px"><strong>Your Burger is Ready!</strong></div>
+                    <p style = "text-align:center"><strong>Click Below to Eat It, Mon.</strong></p>
+                </div>
+                <hr>
                 <div class="panel-body">
-
                     <ul>
                         {{#each burgers}}
                         {{#unless devoured}}
 
                         <span><strong> {{this.id}} - {{this.burgerName}}</strong></span>
-                        <button type="button" class="eatBurger btn btn-warning" id="eatButton{{this.id}}" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-usd"></span></button>
+                        <button type="button" class="eatBurger btn btn-warning" id="eatButton{{this.id}}" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span> <i class="fas fa-utensils"></i> </span></button>
                         <hr>
                         {{/unless}}
                         {{/each}}
@@ -60,16 +64,18 @@
         </div>
         <div class="col-sm-6">
             <div class="panel panel-default">
-                <div class="panel-heading" id="rightside"><strong>Clean Up After Yourself!</strong>
-                    <p><strong>Click Below to Remove Your Trash.</strong></p>
+                <div><div class="panel-heading" id="rightSide" style = "text-align:center; font-size:20px"><strong>Clean Up After Yourself, Mon!</strong></div>
+                    <p style = "text-align:center"><strong>Click Below to Remove Your Trash.</strong></p>
                 </div>
+                <hr>
                 <div class="panel-body">
                     <ul>
                         {{#each burgers}}
                         {{#if devoured}}
                         <span><strong> {{this.id}} - {{this.burgerName}}</strong></span>
                         <button type="button" class="removeBurger btn btn-danger" id="deleteButton" data-id="{{this.id}}"
-                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                        data-newDevoured="{{devour}}"><span><i class="fas fa-trash-alt"></i>
+                        </span></button>
                         <hr>
                         {{/if}}
                         {{/each}}

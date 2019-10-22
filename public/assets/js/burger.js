@@ -12,6 +12,7 @@ $(function () {
           .trim(),
         devoured: 0
       };
+         
       $.ajax("/create", {
         type: "POST",
         data: newBurger
